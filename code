@@ -1,0 +1,34 @@
+
+
+private void SetBallVelocity(BallData ballData)
+{
+    Random rnd = new Random();
+
+    //choses if the x and y is either posetiv or negativ
+    bool x_minus = false;
+    bool y_minus = false;
+    if (rnd.Next(1, 3) == 1) x_minus = false;
+    else x_minus = true;
+    if (rnd.Next(1, 3) == 1) y_minus = false;
+    else y_minus = true;
+
+    // create the velocity
+}
+
+private BallData RandomBallData()
+{
+    Random rnd = new Random();
+    BallData newBallData = new BallData();
+
+    newBallData.x_pos = rnd.Next((int)worldDimensions.floor + 1, (int)worldDimensions.roof - 1);
+    newBallData.y_pos = rnd.Next((int)worldDimensions.leftWall + 1, (int)worldDimensions.rightWall - 1);
+
+    SetBallVelocity(newBallData);
+
+    return newBallData;
+}
+
+    BallData newBall = RandomBallData();
+
+
+    Balls.Add(new Ball(newBall));

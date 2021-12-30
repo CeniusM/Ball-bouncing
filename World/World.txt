@@ -1,0 +1,3 @@
+Make a world with objeckt
+a background with bitmap
+players with difrent key presses
