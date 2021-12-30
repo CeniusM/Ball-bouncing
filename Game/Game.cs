@@ -28,8 +28,8 @@ namespace MyGame
             // balls.Add(new Ball(new BallData(1, 9, 0.3f, 1, 1, 0.1f), Color.HotPink));
             // balls.Add(new Ball(new BallData(5, 3, 0.3f, -1, 1, 0.9f), Color.Red));
             // balls.Add(new Ball(new BallData(5, 2, 0.3f, -1, 1, 0.95f), Color.Blue));
-            // balls.Add(new Ball(new BallData(1, 2, -0.3f, 1, 0.5f, 0.07f), Color.LawnGreen));
-            // balls.Add(new Ball(new BallData(7, 6, -0.3f, 2, 0.7f, 0.9f), Color.OrangeRed));
+            balls.Add(new Ball(new BallData(1, 2, -0.3f, 1, 0.5f, 0.07f), Color.LawnGreen));
+            balls.Add(new Ball(new BallData(7, 6, -0.3f, 2, 0.7f, 0.9f), Color.OrangeRed));
             // balls.Add(new Ball(new BallData(3, 9, 0.3f, 1, 1, 0.95f), Color.Yellow));
             // balls.Add(new Ball(new BallData(4, 4, 0.3f, 1, 1, 0.6f), Color.HotPink));
             // balls.Add(new Ball(new BallData(3, 5, 0.3f, -1, 1, 0.9f), Color.Red));
@@ -64,7 +64,6 @@ namespace MyGame
             {
                 count++;
                 // GUI.Reset(myForm, this);
-                _GUI.Reset();
 
                 // _GUI.ResetBalls(balls);
                 string timeSpend = "ball calculations";
@@ -95,6 +94,8 @@ namespace MyGame
 
                 timeSpend += "Drawing to form";
 
+                _GUI.Reset();
+                Thread.Sleep(10);
                 timeSpend += MyStopwatch.Measure(() =>
                 {
                     _GUI.Print();
