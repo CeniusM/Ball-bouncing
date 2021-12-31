@@ -10,8 +10,8 @@ namespace MyGame
         public List<Ball> balls;
         public int renderHeight;
         public int renderWidth;
-        public int worldHeight = 18;
-        public int worldWidth = 18;
+        public int worldHeight = 19;
+        public int worldWidth = 19;
         private GUI _GUI;
         private bool is_Running;
         public Game(Form1 _Form)
@@ -25,25 +25,25 @@ namespace MyGame
             balls.Add(new Ball(new BallData(6, 3, -0.3f, 0, 0.5f, 0.01f), Color.LightBlue));
             balls.Add(new Ball(new BallData(6, 3, -0.3f, 2, 0.7f, 0.9f), Color.LightCyan));
             balls.Add(new Ball(new BallData(1, 9, 0.3f, 1, 1, 0.95f), Color.HotPink));
-            // balls.Add(new Ball(new BallData(1, 9, 0.3f, 1, 1, 0.1f), Color.HotPink));
-            // balls.Add(new Ball(new BallData(5, 3, 0.3f, -1, 1, 0.9f), Color.Red));
-            // balls.Add(new Ball(new BallData(5, 2, 0.3f, -1, 1, 0.95f), Color.Blue));
+            balls.Add(new Ball(new BallData(1, 9, 0.3f, 1, 1, 0.1f), Color.HotPink));
+            balls.Add(new Ball(new BallData(5, 3, 0.3f, -1, 1, 0.9f), Color.Red));
+            balls.Add(new Ball(new BallData(5, 2, 0.3f, -1, 1, 0.95f), Color.Blue));
             balls.Add(new Ball(new BallData(1, 2, -0.3f, 1, 0.5f, 0.07f), Color.LawnGreen));
             balls.Add(new Ball(new BallData(7, 6, -0.3f, 2, 0.7f, 0.9f), Color.OrangeRed));
-            // balls.Add(new Ball(new BallData(3, 9, 0.3f, 1, 1, 0.95f), Color.Yellow));
-            // balls.Add(new Ball(new BallData(4, 4, 0.3f, 1, 1, 0.6f), Color.HotPink));
-            // balls.Add(new Ball(new BallData(3, 5, 0.3f, -1, 1, 0.9f), Color.Red));
-            // balls.Add(new Ball(new BallData(2, 5, 0.3f, -1, 1, 0.95f), Color.Yellow));
-            // balls.Add(new Ball(new BallData(7, 3, -0.3f, 0, 0.5f, 0.01f), Color.MediumVioletRed));
-            // balls.Add(new Ball(new BallData(8, 3, -0.3f, 2, 0.7f, 0.9f), Color.LightCyan));
-            // balls.Add(new Ball(new BallData(9, 9, 0.3f, 1, 1, 0.95f), Color.Honeydew));
-            // balls.Add(new Ball(new BallData(9, 8, 0.3f, 1, 2, 0.4f), Color.HotPink));
-            // balls.Add(new Ball(new BallData(5, 8, 0.3f, -1, 1, 0.9f), Color.Red));
-            // balls.Add(new Ball(new BallData(2, 9, 0.3f, -1, 1, 0.95f), Color.Blue));
-            // balls.Add(new Ball(new BallData(1, 2, -0.3f, 0, 0.5f, 0.01f), Color.LightBlue));
-            // balls.Add(new Ball(new BallData(7, 6, -0.3f, 2, 0.7f, 0.9f), Color.Khaki));
-            // balls.Add(new Ball(new BallData(8, 9, 0.3f, 1, 1, 0.95f), Color.PaleTurquoise));
-            // balls.Add(new Ball(new BallData(2, 4, 0.3f, 1, 1, 0.5f), Color.Ivory));
+            balls.Add(new Ball(new BallData(3, 9, 0.3f, 1, 1, 0.95f), Color.Yellow));
+            balls.Add(new Ball(new BallData(4, 4, 0.3f, 1, 1, 0.6f), Color.HotPink));
+            balls.Add(new Ball(new BallData(3, 5, 0.3f, -1, 1, 0.9f), Color.Red));
+            balls.Add(new Ball(new BallData(2, 5, 0.3f, -1, 1, 0.95f), Color.Yellow));
+            balls.Add(new Ball(new BallData(7, 3, -0.3f, 0, 0.5f, 0.01f), Color.MediumVioletRed));
+            balls.Add(new Ball(new BallData(8, 3, -0.3f, 2, 0.7f, 0.9f), Color.LightCyan));
+            balls.Add(new Ball(new BallData(9, 9, 0.3f, 1, 1, 0.95f), Color.Honeydew));
+            balls.Add(new Ball(new BallData(9, 8, 0.3f, 1, 2, 0.4f), Color.HotPink));
+            balls.Add(new Ball(new BallData(5, 8, 0.3f, -1, 1, 0.9f), Color.Red));
+            balls.Add(new Ball(new BallData(2, 9, 0.3f, -1, 1, 0.95f), Color.Blue));
+            balls.Add(new Ball(new BallData(1, 2, -0.3f, 0, 0.5f, 0.01f), Color.LightBlue));
+            balls.Add(new Ball(new BallData(7, 6, -0.3f, 2, 0.7f, 0.9f), Color.Khaki));
+            balls.Add(new Ball(new BallData(8, 9, 0.3f, 1, 1, 0.95f), Color.PaleTurquoise));
+            balls.Add(new Ball(new BallData(2, 4, 0.3f, 1, 1, 0.5f), Color.Ivory));
             _GUI = new GUI(_Form);
             is_Running = false;
         }
@@ -93,17 +93,17 @@ namespace MyGame
                 timeSpend += Environment.NewLine;
 
                 timeSpend += "Drawing to form";
-
-                _GUI.Reset();
-                Thread.Sleep(10);
                 timeSpend += MyStopwatch.Measure(() =>
                 {
                     _GUI.Print();
                 });
 
+                _GUI.Reset();
                 timeSpend += Environment.NewLine;
 
-                // MyConsole.WriteLine(timeSpend);
+
+
+                MyConsole.WriteLine(timeSpend);
 
                 // GUI.RenderAndPrint(this);
 
@@ -141,6 +141,7 @@ namespace MyGame
 
         private void MyKeyPress(object? sender, KeyPressEventArgs e)
         {
+            Random rnd = new Random();
             if (e.KeyChar == 'w')
             {
                 foreach (Ball ball in balls)
@@ -201,6 +202,38 @@ namespace MyGame
                 {
                     ball.ballData.bounciness -= 0.1f;
                 }
+            }
+            if (e.KeyChar == 't')
+            {
+                BallPhysics.gravity += 0.01f;
+            }
+            if (e.KeyChar == 'g')
+            {
+                BallPhysics.gravity -= 0.01f;
+            }
+            if (e.KeyChar == 'y')
+            {
+                BallPhysics.wind += 0.01f;
+            }
+            if (e.KeyChar == 'h')
+            {
+                BallPhysics.wind -= 0.01f;
+            }
+            if (e.KeyChar == 'p')
+            {
+                foreach (Ball ball in balls)
+                {
+                    ball.ballData.x_velocity = 0;
+                    ball.ballData.y_velocity = 0;
+                }                
+            }
+            if (e.KeyChar == 'o')
+            {
+                foreach (Ball ball in balls)
+                {
+                    ball.ballData.x_velocity = (float)(rnd.NextDouble() - 0.5) * 5;
+                    ball.ballData.y_velocity = (float)(rnd.NextDouble() - 0.5) * 5;
+                }                
             }
         }
     }

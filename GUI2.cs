@@ -22,12 +22,14 @@ namespace MyGame
         public void Print()
         {
             _Form.graphicsObj.DrawImage(_Bitmap, 0, 0);
-            // _Bitmap = new Bitmap(_Bitmap.Width, _Bitmap.Height);
         }
 
         public void Reset()
         {
-            _Bitmap = new Bitmap(_Bitmap.Width, _Bitmap.Height);
+            _Brush.Color = Color.White;
+            graphicsObj.FillRectangle(_Brush, 0, 0, _Bitmap.Width, _Bitmap.Height);
+            // _Bitmap = new Bitmap(_Bitmap.Width, _Bitmap.Height, graphicsObj);
+            // graphicsObj = Graphics.FromImage(_Bitmap);
         }
 
         public void DrawLine(int x1, int y1, int x2, int y2, Color color, int width)
