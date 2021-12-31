@@ -103,7 +103,7 @@ namespace MyGame
 
 
 
-                MyConsole.WriteLine(timeSpend);
+                // MyConsole.WriteLine(timeSpend);
 
                 // GUI.RenderAndPrint(this);
 
